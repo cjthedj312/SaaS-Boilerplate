@@ -15,7 +15,7 @@ export const CTA = () => {
         buttons={(
           <a
             className={buttonVariants({ variant: 'secondary', size: 'lg', className: 'whitespace-pre-line' })}
-            href="https://nextjs-boilerplate.com/nextjs-multi-tenant-saas-boilerplate"
+            href="https://nextjs-boilerplate.com/nextjs-saas-starter-kit"
           >
             {t('button_text')}
 

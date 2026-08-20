@@ -47,7 +47,7 @@ export const Hero = () => {
 
             <a
               className={buttonVariants({ size: 'lg' })}
-              href="https://nextjs-boilerplate.com/nextjs-multi-tenant-saas-boilerplate"
+              href="https://nextjs-boilerplate.com/nextjs-saas-starter-kit"
             >
               {t('primary_button')}
               <ArrowRightIcon className="ml-1 size-5" />
