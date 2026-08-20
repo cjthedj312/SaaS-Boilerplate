@@ -198,45 +198,46 @@ This command starts Next.js, a local PostgreSQL-compatible PGlite database, and 
 
 Need advanced features? Next.js 16 & React 19, Multi-tenancy & Teams, Roles & Permissions, Shadcn UI, End-to-End Typesafety with oRPC, Stripe Payment, Light / Dark mode. Try [Next.js Boilerplate Pro](https://nextjs-boilerplate.com/pro-saas-starter-kit).
 
-Or, need a Self-hosted auth stack (Better Auth)? Try [Next.js Boilerplate Max](https://nextjs-boilerplate.com/nextjs-multi-tenant-saas-boilerplate)
+Or, need a Self-hosted auth stack (Better Auth)? Try [Next.js Boilerplate Plus](https://nextjs-boilerplate.com/nextjs-saas-starter-kit)
 
-### Free vs Pro vs Max version
+### Free vs Plus vs Pro vs Max version
 
-This project offers a free open-source version and premium Pro/Max versions. Here's a detailed comparison:
+This project offers a free open-source version and premium Plus/Pro/Max versions. Here's a detailed comparison:
 
-| Features | Free Version | Pro Version | Max Version |
-|---------|:------------:|:-----------:|:-----------:|
-| **Authentication** | ✅ | ✅ | ✅ |
-| **Self-Hosted Authentication (Better Auth)** | ❌ | ❌ | ✅ |
-| **Social Login (Google, Facebook, GitHub, etc.)** | ✅ | ✅ | ✅ |
-| **Multi-Factor Auth & User Impersonation** | ✅ | ✅ | ✅ |
-| **Multi-tenancy & Team Support** | ✅ | ✅ | ✅ |
-| **Role-based Access Control (RBAC)** | ✅ | ✅ | ✅ |
-| **Landing Page (Hero, Features, Pricing)** | ✅ | ✅ | ✅ |
-| **Internationalization (i18n)** | ✅ | ✅ | ✅ |
-| **Drizzle ORM & Dev Database** | ✅ | ✅ | ✅ |
-| **GitHub Actions** | ✅ | ✅ | ✅ |
-| **VSCode Configuration** | ✅ | ✅ | ✅ |
-| **Built for Humans & AI Agents (Agents.md)** | ❌ | ✅ | ✅ |
-| **Transactional Emails (React Email)** | ❌ | ❌ | ✅ |
-| **Bun: package manager** | ❌ | ❌ | ✅ |
-| **[Sentry Error Monitoring](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo)** | ✅ | ✅ | ✅ |
-| **Shadcn UI** | ✅ | ✅ | ✅ |
-| **Next.js** | 16 | 16 | 16 |
-| **React** | 19 | 19 | 19 |
-| **Tailwind CSS** | 4 | 4 | 4 |
-| **ESLint** | 10 | 10 | 10 |
-| **User Dashboard** | Basic | Extended | Extended |
-| **Code Quality Tools** | Basic | Extended | Extended |
-| **Testing: Unit, Integration, E2E, Visual** | Basic | Extended | Extended |
-| **Stripe Integration** | ❌ | ✅ | ✅ |
-| **Todo App Example (CRUD)** | ❌ | ✅ | ✅ |
-| **End-to-End Typesafe APIs (oRPC)** | ❌ | ✅ | ✅ |
-| **Dark Mode** | ❌ | ✅ | ✅ |
-| **Email support (1 year)** | ❌ | ✅ | ✅ |
+| Features | Free Version | Plus Version | Pro Version | Max Version |
+|---------|:------------:|:------------:|:-----------:|:-----------:|
+| **Authentication** | ✅ | ✅ | ✅ | ✅ |
+| **Self-Hosted Authentication (Better Auth)** | ❌ | ✅ | ❌ | ✅ |
+| **Social Login (Google, Facebook, GitHub, etc.)** | ✅ | ✅ | ✅ | ✅ |
+| **Multi-Factor Auth & User Impersonation** | ✅ | ✅ | ✅ | ✅ |
+| **Multi-tenancy & Team Support** | ✅ | ❌ | ✅ | ✅ |
+| **Role-based Access Control (RBAC)** | ✅ | ❌ | ✅ | ✅ |
+| **Landing Page (Hero, Features, Pricing)** | ✅ | ✅ | ✅ | ✅ |
+| **Internationalization (i18n)** | ✅ | ✅ | ✅ | ✅ |
+| **Drizzle ORM & Dev Database** | ✅ | ✅ | ✅ | ✅ |
+| **GitHub Actions** | ✅ | ✅ | ✅ | ✅ |
+| **VSCode Configuration** | ✅ | ✅ | ✅ | ✅ |
+| **Built for Humans & AI Agents (Agents.md)** | ❌ | ✅ | ✅ | ✅ |
+| **Transactional Emails (React Email)** | ❌ | ✅ | ❌ | ✅ |
+| **Bun: package manager** | ❌ | ✅ | ❌ | ✅ |
+| **[Sentry Error Monitoring](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo)** | ✅ | ✅ | ✅ | ✅ |
+| **Shadcn UI** | ✅ | ✅ | ✅ | ✅ |
+| **Next.js** | 16 | 16 | 16 | 16 |
+| **React** | 19 | 19 | 19 | 19 |
+| **Tailwind CSS** | 4 | 4 | 4 | 4 |
+| **ESLint** | 10 | 10 | 10 | 10 |
+| **User Dashboard** | Basic | Extended | Extended | Extended |
+| **Code Quality Tools** | Basic | Extended | Extended | Extended |
+| **Testing: Unit, Integration, E2E, Visual** | Basic | Extended | Extended | Extended |
+| **Stripe Integration** | ❌ | ✅ | ✅ | ✅ |
+| **Todo App Example (CRUD)** | ❌ | ✅ | ✅ | ✅ |
+| **End-to-End Typesafe APIs (oRPC)** | ❌ | ✅ | ✅ | ✅ |
+| **Dark Mode** | ❌ | ✅ | ✅ | ✅ |
+| **Email support (1 year)** | ❌ | ✅ | ✅ | ✅ |
 
 **Live Demos:**
 - Free Version: [https://react-saas.com](https://react-saas.com)
+- Plus Version: [https://plus-demo.nextjs-boilerplate.com](https://plus-demo.nextjs-boilerplate.com)
 - Pro Version: [https://pro-demo.nextjs-boilerplate.com](https://pro-demo.nextjs-boilerplate.com)
 - Max Version: [https://max-demo.nextjs-boilerplate.com](https://max-demo.nextjs-boilerplate.com)
 
