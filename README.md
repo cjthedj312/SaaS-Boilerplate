@@ -1,8 +1,11 @@
-# Free and Open Source SaaS Boilerplate with Tailwind CSS and Shadcn UI
+# Free and Open Source SaaS Boilerplate with AI Streaming & Whop Webhooks
+
+> 🚀 **Looking for turnkey agency blueprints?** Grab the official **[AI Micro-SaaS & Autonomous Agency Launch Kit on Whop](https://whop.com/peaksaidevelopment/ai-micro-saas-autonomous-agency-launch-kit/)** featuring plug-and-play n8n workflows, client contracts, and cold outreach playbooks.
 
 <p align="center">
-  <a href="https://react-saas.com"><img height="300" src="public/assets/images/nextjs-starter-banner.png?raw=true" alt="Next.js SaaS Template"></a>
+  <a href="https://whop.com/peaksaidevelopment/ai-micro-saas-autonomous-agency-launch-kit/"><img height="300" src="public/assets/images/nextjs-starter-banner.png?raw=true" alt="Next.js SaaS Template"></a>
 </p>
+
 
 🚀 **SaaS Boilerplate** is a powerful and fully customizable template to kickstart your SaaS applications. Built with **Next.js** and **Tailwind CSS**, and the modular UI components of **Shadcn UI**. This **Next.js SaaS Template** helps you to quickly build and launch SaaS with minimal effort.
 
