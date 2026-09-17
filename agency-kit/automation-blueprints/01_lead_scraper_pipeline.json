@@ -1,0 +1,59 @@
+{
+  "name": "Local Business Lead Scraper Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 4
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://overpass-api.de/api/interpreter",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "data",
+              "value": "[out:json][timeout:60];(node[\"craft\"=\"window_cleaner\"](38.7,-104.9,39.0,-104.7);way[\"craft\"=\"window_cleaner\"](38.7,-104.9,39.0,-104.7););out body;>;out skel qt;"
+            }
+          ]
+        }
+      },
+      "id": "fetch-osm-leads",
+      "name": "Fetch OpenStreetMap Leads",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const elements = $input.all()[0].json.elements || [];\nreturn elements.map(el => ({\n  json: {\n    id: `osm_${el.id}`,\n    name: el.tags?.name || 'Local Contractor',\n    phone: el.tags?.phone || el.tags?.['contact:phone'] || '',\n    website: el.tags?.website || '',\n    city: el.tags?.['addr:city'] || 'Colorado Springs'\n  }\n})).filter(lead => lead.json.phone !== '');"
+      },
+      "id": "clean-leads",
+      "name": "Filter & Normalize Leads",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [[{"node": "Fetch OpenStreetMap Leads", "type": "main", "index": 0}]]
+    },
+    "Fetch OpenStreetMap Leads": {
+      "main": [[{"node": "Filter & Normalize Leads", "type": "main", "index": 0}]]
+    }
+  }
+}

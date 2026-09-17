@@ -1,0 +1,46 @@
+{
+  "name": "AI Customer Support & Lead Triage",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "support-inbound",
+        "options": {}
+      },
+      "id": "inbound-webhook",
+      "name": "Inbound Message Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "prompt": "=Analyze this customer inquiry and return a JSON object with 'intent' (quote_request, support, complaint, general), 'urgency' (high, medium, low), and 'suggested_reply':\nCustomer message: {{ $json.body.message }}"
+      },
+      "id": "ai-triage-node",
+      "name": "AI Intent & Sentiment Classifier",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.3,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = JSON.parse($input.first().json.message.content);\nreturn { json: result };"
+      },
+      "id": "format-output",
+      "name": "Parse Structured JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 300]
+    }
+  ],
+  "connections": {
+    "Inbound Message Webhook": {
+      "main": [[{"node": "AI Intent & Sentiment Classifier", "type": "main", "index": 0}]]
+    },
+    "AI Intent & Sentiment Classifier": {
+      "main": [[{"node": "Parse Structured JSON", "type": "main", "index": 0}]]
+    }
+  }
+}

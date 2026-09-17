@@ -1,0 +1,49 @@
+{
+  "name": "Stripe Connect & Whop 70/30 Revenue Splitter",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "payout-webhook",
+        "options": {}
+      },
+      "id": "payment-webhook",
+      "name": "Payment Succeeded Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const totalAmount = $json.body.data?.amount || 10000; // in cents\nconst contractorShare = Math.round(totalAmount * 0.70);\nconst agencyFee = totalAmount - contractorShare;\n\nreturn {\n  json: {\n    total_cents: totalAmount,\n    contractor_cents: contractorShare,\n    agency_cents: agencyFee,\n    destination_account: $json.body.data?.destination || 'acct_contractor_default'\n  }\n};"
+      },
+      "id": "calculate-split",
+      "name": "Calculate 70/30 Revenue Split",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "resource": "transfer",
+        "amount": "={{ $json.contractor_cents }}",
+        "currency": "usd",
+        "destination": "={{ $json.destination_account }}"
+      },
+      "id": "stripe-transfer",
+      "name": "Trigger Contractor Stripe Transfer",
+      "type": "n8n-nodes-base.stripe",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Payment Succeeded Webhook": {
+      "main": [[{"node": "Calculate 70/30 Revenue Split", "type": "main", "index": 0}]]
+    },
+    "Calculate 70/30 Revenue Split": {
+      "main": [[{"node": "Trigger Contractor Stripe Transfer", "type": "main", "index": 0}]]
+    }
+  }
+}

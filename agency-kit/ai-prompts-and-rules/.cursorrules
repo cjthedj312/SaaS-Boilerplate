@@ -1,0 +1,13 @@
+# Master AI Rules & Prototyping Protocol
+
+## Core Principles
+1. **TypeScript First**: Always use strict typing. Avoid `any` at all costs.
+2. **Next.js 15 App Router**: Prefer server components by default; only use `'use client'` when state or browser APIs are required.
+3. **Tailwind CSS & Shadcn UI**: Use standard design tokens, clean utility classes, and avoid custom inline CSS.
+4. **Resilient API Routes**: Always wrap async route handlers in `try/catch`, return typed JSON error responses, and validate inputs using Zod.
+5. **No Hallucinated Packages**: Always stick to established, modern packages (`@clerk/nextjs`, `drizzle-orm`, `lucide-react`, `zod`).
+
+## Code Style
+- Use functional components with arrow functions or standard declarations.
+- Keep components modular and under 150 lines where possible.
+- Use explicit error messages in API responses to expedite frontend debugging.

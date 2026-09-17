@@ -1,0 +1,57 @@
+{
+  "name": "Missed Call Instant SMS Responder",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "twilio-missed-call",
+        "options": {}
+      },
+      "id": "twilio-webhook",
+      "name": "Twilio Call Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.CallStatus }}",
+              "operation": "equals",
+              "value2": "no-answer"
+            }
+          ]
+        }
+      },
+      "id": "check-no-answer",
+      "name": "Was Call Missed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "message": "Hi! Sorry we missed your call just now. You can book an appointment or get an instant quote here: https://peaksai.tech/book - Or reply to this text with any questions!",
+        "from": "={{ $json.body.To }}",
+        "to": "={{ $json.body.From }}"
+      },
+      "id": "send-sms-reply",
+      "name": "Send Instant SMS Text-Back",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [680, 260]
+    }
+  ],
+  "connections": {
+    "Twilio Call Webhook": {
+      "main": [[{"node": "Was Call Missed?", "type": "main", "index": 0}]]
+    },
+    "Was Call Missed?": {
+      "main": [
+        [{"node": "Send Instant SMS Text-Back", "type": "main", "index": 0}]
+      ]
+    }
+  }
+}
